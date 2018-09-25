@@ -12,7 +12,7 @@
     <div class="ui-g-12">
       <label style="display: block">Vencimento</label>
       <input pInputText type="text" style="width: 95px;"/>
-      <label>até</label>
+      <label>&nbsp;até&nbsp;</label>
       <input pInputText type="text" style="width: 95px;"/>
     </div>
 
@@ -39,9 +39,10 @@
               <td>{{ lancamento.descricao}}</td>
               <td class="col-data">{{ lancamento.dataVencimento | date:'d/MM/y' }}</td>
               <td class="col-data">{{ lancamento.dataPagamento | date:'d/MM/y' }}</td>
-              <td  class="col-valor" [ngStyle]="{ color: lancamento.tipo === 'DESPESA' ? 'red' : 'blue' }">{{ lancamento.valor | currency:'R$ ': 'symbol': '1.2-2'}}</td>
+              <td class="col-valor" [ngStyle]="{ color: lancamento.tipo === 'DESPESA' ? 'red' : 'blue' }">{{ lancamento.valor | currency:'R$ ': 'symbol': '1.2-2'}}</td>
               <td class="col-acoes">
-                <button pButton icon="fa fa-pencil" pTooltip="Editar" tooltipPosition="bottom"></button>&nbsp;
+                <button pButton icon="fa fa-pencil" pTooltip="Editar" tooltipPosition="bottom"></button>
+                &nbsp;
                 <button pButton icon="fa fa-trash" pTooltip="Excluir" tooltipPosition="bottom"></button>
               </td>
             </tr>
