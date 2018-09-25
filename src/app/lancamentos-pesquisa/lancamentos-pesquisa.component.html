@@ -35,11 +35,11 @@
           </ng-template>
           <ng-template pTemplate="body" let-lancamento>
             <tr>
-              <td>{{lancamento.pessoa}}</td>
-              <td class="col-data">{{lancamento.descricao}}</td>
-              <td class="col-data">{{lancamento.dataVencimento}}</td>
-              <td class="col-valor">{{lancamento.dataPagamento}}</td>
-              <td [ngStyle]="{color: lancamento.tipo === 'DESPESA' ? 'red' : 'blue'}">{{lancamento.valor}}</td>
+              <td>{{ lancamento.pessoa }}</td>
+              <td>{{ lancamento.descricao}}</td>
+              <td class="col-data">{{ lancamento.dataVencimento | date:'d/MM/y' }}</td>
+              <td class="col-data">{{ lancamento.dataPagamento | date:'d/MM/y' }}</td>
+              <td  class="col-valor" [ngStyle]="{ color: lancamento.tipo === 'DESPESA' ? 'red' : 'blue' }">{{ lancamento.valor | currency:'R$ ': 'symbol': '1.2-2'}}</td>
               <td class="col-acoes">
                 <button pButton icon="fa fa-pencil" pTooltip="Editar" tooltipPosition="bottom"></button>&nbsp;
                 <button pButton icon="fa fa-trash" pTooltip="Excluir" tooltipPosition="bottom"></button>
