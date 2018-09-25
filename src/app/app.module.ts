@@ -3,8 +3,8 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { InputTextModule } from 'primeng/components/inputtext/inputtext';
-import { ButtonModule } from "primeng/components/button/button";
-import { DataTableModule } from "primeng/components/datatable/datatable";
+import { ButtonModule } from 'primeng/components/button/button';
+import { TableModule } from 'primeng/table';
 
 @NgModule({
   declarations: [
@@ -14,7 +14,7 @@ import { DataTableModule } from "primeng/components/datatable/datatable";
     BrowserModule,
     InputTextModule,
     ButtonModule,
-    DataTableModule
+    TableModule
   ],
   providers: [],
   bootstrap: [AppComponent]
