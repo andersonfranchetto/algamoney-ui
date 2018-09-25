@@ -11,7 +11,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { LancamentosPesquisaComponent } from './lancamentos-pesquisa/lancamentos-pesquisa.component';
 import { PessoasPesquisaComponent } from './pessoas-pesquisa/pessoas-pesquisa.component';
 import { LancamentoCadastroComponent } from './lancamento-cadastro/lancamento-cadastro.component';
-import { InputTextareaModule } from 'primeng/primeng';
+import { DropdownModule, InputTextareaModule } from 'primeng/primeng';
 import { CalendarModule } from 'primeng/calendar';
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { SelectButtonModule } from 'primeng/selectbutton';
@@ -33,7 +33,8 @@ import { SelectButtonModule } from 'primeng/selectbutton';
     InputTextareaModule,
     CalendarModule,
     BrowserAnimationsModule,
-    SelectButtonModule
+    SelectButtonModule,
+    DropdownModule
   ],
   providers: [],
   bootstrap: [AppComponent]
