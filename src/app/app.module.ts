@@ -11,12 +11,13 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { LancamentosPesquisaComponent } from './lancamentos-pesquisa/lancamentos-pesquisa.component';
 import { PessoasPesquisaComponent } from './pessoas-pesquisa/pessoas-pesquisa.component';
 import { LancamentoCadastroComponent } from './lancamento-cadastro/lancamento-cadastro.component';
-import {DropdownModule, InputMaskModule, InputTextareaModule} from 'primeng/primeng';
+import { DropdownModule, InputMaskModule, InputTextareaModule } from 'primeng/primeng';
 import { CalendarModule } from 'primeng/calendar';
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { SelectButtonModule } from 'primeng/selectbutton';
 import { CurrencyMaskModule } from 'ng2-currency-mask';
 import { PessoasCadastroComponent } from './pessoas-cadastro/pessoas-cadastro.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { PessoasCadastroComponent } from './pessoas-cadastro/pessoas-cadastro.co
   imports: [
     BrowserModule,
     InputTextModule,
+    FormsModule,
     ButtonModule,
     TableModule,
     TooltipModule,
