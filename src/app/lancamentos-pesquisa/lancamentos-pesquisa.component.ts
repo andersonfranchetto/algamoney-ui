@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 
 @Component({
   selector: 'app-lancamentos-pesquisa',
@@ -7,10 +7,40 @@ import { Component } from '@angular/core';
 })
 export class LancamentosPesquisaComponent {
 
+  cols = [
+    {header: 'Pessoa'},
+    {header: 'Descrição'},
+    {header: 'Vencimento'},
+    {header: 'Pagamento'},
+    {header: 'Valor'},
+    {header: 'Ações'}
+  ];
+
   lancamentos = [
-    {tipo: 'DESPESA', descricao: 'Compra de pão', dataVencimento: new Date(2017, 5, 30), dataPagamento: null, valor: 4.55, pessoa: 'Padaria do José'},
-    {tipo: 'RECEITA', descricao: 'Venda de Software', dataVencimento: new Date(2017, 5, 10), dataPagamento: new Date(2017, 5, 9), valor: 80000, pessoa: 'Atacado Brasil'},
-    {tipo: 'DESPESA', descricao: 'Pagamento de luz', dataVencimento: new Date(2017, 5, 10), dataPagamento: new Date(2017, 5, 8), valor: 80000, pessoa: 'Elktro SA'}
-  ]
+    {
+      tipo: 'RECEITA',
+      descricao: 'Venda de Software',
+      dataVencimento: new Date(2017, 5, 10),
+      dataPagamento: new Date(2017, 5, 9),
+      valor: 80000,
+      pessoa: 'Atacado Brasil'
+    },
+    {
+      tipo: 'RECEITA',
+      descricao: 'Venda de Software',
+      dataVencimento: new Date(2017, 5, 10),
+      dataPagamento: new Date(2017, 5, 9),
+      valor: 80000,
+      pessoa: 'Atacado Brasil'
+    },
+    {
+      tipo: 'DESPESA',
+      descricao: 'Pagamento de luz',
+      dataVencimento: new Date(2017, 5, 10),
+      dataPagamento: new Date(2017, 5, 8),
+      valor: 80000,
+      pessoa: 'Elktro SA'
+    }
+  ];
 
 }
