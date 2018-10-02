@@ -20,7 +20,6 @@ import { SharedModule } from '../shared/shared.module';
 @NgModule({
   imports: [
     CommonModule,
-    BrowserModule,
     TableModule,
     FormsModule,
     InputTextModule,
@@ -28,7 +27,6 @@ import { SharedModule } from '../shared/shared.module';
     TooltipModule,
     InputTextareaModule,
     CalendarModule,
-    BrowserAnimationsModule,
     SelectButtonModule,
     DropdownModule,
     CurrencyMaskModule,
