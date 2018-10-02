@@ -15,6 +15,7 @@ import { CalendarModule } from 'primeng/calendar';
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { SelectButtonModule } from 'primeng/selectbutton';
 import { CurrencyMaskModule } from 'ng2-currency-mask';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   imports: [
@@ -30,7 +31,9 @@ import { CurrencyMaskModule } from 'ng2-currency-mask';
     BrowserAnimationsModule,
     SelectButtonModule,
     DropdownModule,
-    CurrencyMaskModule
+    CurrencyMaskModule,
+
+    SharedModule
   ],
   declarations: [
     LancamentoCadastroComponent,
