@@ -8,13 +8,7 @@ import {LancamentoService} from "../lancamento.service";
 })
 export class LancamentosPesquisaComponent implements OnInit{
 
-  lancamentos = [ ];
-
-  constructor(private lancamentoService: LancamentoService){}
-
-  ngOnInit(){
-    this.pesquisar();
-  }
+  lancamentos = [];
 
   cols = [
     {header: 'Pessoa'},
@@ -25,8 +19,14 @@ export class LancamentosPesquisaComponent implements OnInit{
     {header: 'Ações'}
   ];
 
-  pesquisar() {
-    this.lancamentoService.pesquisar();
+  constructor(private lancamentoService: LancamentoService){}
+
+  ngOnInit(){
+    this.pesquisar();
   }
 
+  pesquisar() {
+    this.lancamentoService.pesquisar()
+      .subscribe(lancamentos => this.lancamentos = lancamentos);
+  }
 }
