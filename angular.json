@@ -24,7 +24,7 @@
             ],
             "styles": [
               "node_modules/primeicons/primeicons.css",
-              "node_modules/primeng/resources/themes/nova-light/theme.css",
+              "node_modules/primeng/resources/themes/nova-dark/theme.css",
               "node_modules/primeng/resources/primeng.min.css",
               "node_modules/font-awesome/css/font-awesome.css",
               "src/styles.css"
@@ -77,7 +77,7 @@
             "karmaConfig": "src/karma.conf.js",
             "styles": [
               "node_modules/primeicons/primeicons.css",
-              "node_modules/primeng/resources/themes/bootstrap/theme.css",
+              "node_modules/primeng/resources/themes/omega/theme.css",
               "node_modules/primeng/resources/primeng.css",
               "src/styles.css"
             ],
