@@ -8,6 +8,8 @@ import {LancamentoService} from "../lancamento.service";
 })
 export class LancamentosPesquisaComponent implements OnInit{
 
+  descricao: string;
+
   lancamentos = [];
 
   cols = [
@@ -26,7 +28,7 @@ export class LancamentosPesquisaComponent implements OnInit{
   }
 
   pesquisar() {
-    this.lancamentoService.pesquisar()
+    this.lancamentoService.pesquisar( { descricao: this.descricao } )
       .subscribe(lancamentos => this.lancamentos = lancamentos);
   }
 }
