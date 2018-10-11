@@ -4,9 +4,15 @@ import {Observable} from 'rxjs';
 
 import { map } from 'rxjs/operators';
 
+import * as moment from 'moment';
 
-export interface LancamentoFiltro {
+
+export class LancamentoFiltro {
   descricao: string;
+  dataVencimentoDe: Date;
+  dataVencimentoAte: Date;
+  pagina: number = 0;
+  itensPorPagina: number = 5;
 }
 
 @Injectable()
@@ -14,7 +20,7 @@ export class LancamentoService {
 
   url = 'http://192.168.10.5:8081/lancamentos'
 
-  token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiJhZG1pbkBhbGdhbW9uZXkuY29tIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIl0sIm5vbWUiOiJBZG1pbmlzdHJhZG9yIiwiZXhwIjoxNTM5MjAyNDIxLCJhdXRob3JpdGllcyI6WyJST0xFX0NBREFTVFJBUl9DQVRFR09SSUEiLCJST0xFX1BFU1FVSVNBUl9QRVNTT0EiLCJST0xFX1JFTU9WRVJfUEVTU09BIiwiUk9MRV9DQURBU1RSQVJfTEFOQ0FNRU5UTyIsIlJPTEVfUEVTUVVJU0FSX0xBTkNBTUVOVE8iLCJST0xFX1JFTU9WRVJfTEFOQ0FNRU5UTyIsIlJPTEVfQ0FEQVNUUkFSX1BFU1NPQSIsIlJPTEVfUEVTUVVJU0FSX0NBVEVHT1JJQSJdLCJqdGkiOiJhZjI0ZmMzYS04ZDFiLTQ3ZGMtYWMzZi1iNTEzZTIwMTcwZjgiLCJjbGllbnRfaWQiOiJhbmd1bGFyIn0.Xl7n5e0JrfWfGRLFXEFgKKlpJc37eYIm4xHzujZPEYM';
+  token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiJhZG1pbkBhbGdhbW9uZXkuY29tIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIl0sIm5vbWUiOiJBZG1pbmlzdHJhZG9yIiwiZXhwIjoxNTM5Mjc5NDQxLCJhdXRob3JpdGllcyI6WyJST0xFX0NBREFTVFJBUl9DQVRFR09SSUEiLCJST0xFX1BFU1FVSVNBUl9QRVNTT0EiLCJST0xFX1JFTU9WRVJfUEVTU09BIiwiUk9MRV9DQURBU1RSQVJfTEFOQ0FNRU5UTyIsIlJPTEVfUEVTUVVJU0FSX0xBTkNBTUVOVE8iLCJST0xFX1JFTU9WRVJfTEFOQ0FNRU5UTyIsIlJPTEVfQ0FEQVNUUkFSX1BFU1NPQSIsIlJPTEVfUEVTUVVJU0FSX0NBVEVHT1JJQSJdLCJqdGkiOiIwMzYwYzFmYy1iMjI4LTQyNDItYTZiNi01NjM1YzQ3OGNmODIiLCJjbGllbnRfaWQiOiJhbmd1bGFyIn0.wbsVGIQ5tPe1JYJBUjHwFLe4PVZy39gVVz1EvJAksd4';
 
   constructor(private http: HttpClient) {
   }
@@ -22,6 +28,9 @@ export class LancamentoService {
   pesquisar(filtro: LancamentoFiltro): Observable<any> {
 
     let params = new HttpParams();
+
+    params = params.append('page', filtro.pagina.toString());
+    params = params.append('size', filtro.itensPorPagina.toString());
 
     const headers = new HttpHeaders()
       .append('Content-Type', 'application/json; charset=utf-8; charset=utf-8')
@@ -31,10 +40,18 @@ export class LancamentoService {
       params = params.append('descricao', filtro.descricao);
     }
 
+    if (filtro.dataVencimentoDe) {
+      params = params.append('dataVencimentoDe', moment(filtro.dataVencimentoDe).format('YYYY-MM-DD'));
+    }
+
+    if (filtro.dataVencimentoAte) {
+      params = params.append('dataVencimentoAte', moment(filtro.dataVencimentoAte).format('YYYY-MM-DD'));
+    }
+
     return this.http.get(`${this.url}?resumo`,
       {headers, params})
       .pipe(
-        map(response => response["content"])
+        map(response => response)
       );
   }
 }
