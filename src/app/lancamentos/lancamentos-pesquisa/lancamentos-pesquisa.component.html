@@ -23,7 +23,7 @@
     </form>
     <div class="ui-g">
       <div class="ui-g-12">
-        <app-lancamentos-grid [lancamentos]="lancamentos" [cols]="cols" [filtro]="filtro"></app-lancamentos-grid>
+        <app-lancamentos-grid [lancamentos]="lancamentos" [totalRegistros]="totalRegistros" [cols]="cols" [filtro]="filtro" (numeroPagina)="aoMudarPagina($event)"></app-lancamentos-grid>
       </div>
     </div>
 

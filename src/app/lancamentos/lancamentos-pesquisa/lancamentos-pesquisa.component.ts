@@ -1,6 +1,5 @@
 import {Component, OnInit } from '@angular/core';
 import {LancamentoFiltro, LancamentoService} from "../lancamento.service";
-import {LazyLoadEvent} from "primeng/api";
 
 @Component({
   selector: 'app-lancamentos-pesquisa',
@@ -31,12 +30,13 @@ export class LancamentosPesquisaComponent implements OnInit{
     this.filtro.pagina = pagina;
     this.lancamentoService.pesquisar(this.filtro)
       .subscribe(lancamentos => {
-        this.lancamentos = lancamentos.content;
-        this.totalRegistros = lancamentos.totalElements;
-      });
+          this.lancamentos = lancamentos.content,
+          this.totalRegistros = lancamentos.totalElements
+        }
+      );
   }
 
-  aoMudarPagina(event: LazyLoadEvent) {
-    this.pesquisar(event.first / event.rows/*= numero da pagina em questão*/);
+  aoMudarPagina(numeroPagina) {
+    this.pesquisar(numeroPagina);
   }
 }

@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 import { LancamentoFiltro } from "../lancamento.service";
 
 @Component({
@@ -9,6 +9,12 @@ import { LancamentoFiltro } from "../lancamento.service";
 export class LancamentosGridComponent {
 
   @Input() filtro: LancamentoFiltro;
+  @Input() totalRegistros;
   @Input() lancamentos=[];
   @Input() cols=[];
+  @Output() numeroPagina = new EventEmitter();
+
+  aoMudarPagina(event){
+   this.numeroPagina.emit(event.first / event.rows);
+  }
 }
